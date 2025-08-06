@@ -1,12 +1,13 @@
 const path = require("node:path");
-require("dotenv").config();
 const express = require("express");
 const pg = require("pg");
 const expressSession = require("express-session");
 const pgSession = require("connect-pg-simple")(expressSession);
-const app = express();
-//const indexRouter = require("./routes/indexRouter");
+const indexRouter = require("./routes/indexRouter");
+const passport = require("passport");
 
+require("dotenv").config();
+const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -39,8 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // routes
-//app.use("/", indexRouter);
-app.get("/", (req, res) => res.send("welcome!"));
+app.use("/", indexRouter);
 
 // catch all errors
 app.use((err, req, res, next) => {

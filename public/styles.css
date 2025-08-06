@@ -1,0 +1,18 @@
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  border: solid 2px rgb(97, 150, 19);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.nav-link,
+.nav-link:visited {
+  color: rgb(97, 150, 19);
+}
