@@ -7,6 +7,16 @@
     <title>Excommunicado club</title>
   </head>
   <body>
-    <%- include('navBar', links); %>
+    <%- include('navBar', links); %> <% if (locals.messages) { %>
+    <h1>Excommunicado messages:</h1>
+    <ul>
+      <% for (const message of messages) { %> <% if (isMember) { %>
+      <li><%= `${message.user} says: ${message.text}` %></li>
+      <% } else { %>
+      <li><%= message.text %></li>
+      <% } %> <% } %>
+    </ul>
+
+    <% } %>
   </body>
 </html>
