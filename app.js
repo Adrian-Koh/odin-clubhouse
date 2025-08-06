@@ -7,10 +7,13 @@ const pgSession = require("connect-pg-simple")(expressSession);
 const app = express();
 //const indexRouter = require("./routes/indexRouter");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// set up express-session with connect-pg-simple
 const pgPool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
-console.log(process.env.DATABASE_URL);
 
 app.use(
   expressSession({
@@ -29,14 +32,21 @@ app.use(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+
+// passport
+require("./passport");
+app.use(passport.initialize());
+app.use(passport.session());
+
+// routes
 //app.use("/", indexRouter);
 app.get("/", (req, res) => res.send("welcome!"));
 
-// app.use((err, req, res, next) => {
-//   res.status(500);
-//   res.send(err);
-//   //res.render("error", { error: err });
-// });
+// catch all errors
+app.use((err, req, res, next) => {
+  res.status(500);
+  res.send(err);
+});
 
 const PORT = 8000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}.`));
