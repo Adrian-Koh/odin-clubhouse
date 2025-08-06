@@ -13,4 +13,8 @@ function getHomepage(req, res) {
   res.render("index", { links, messages: dummyMessages, isMember: false });
 }
 
-module.exports = { getHomepage };
+function getSignupForm(req, res) {
+  res.render("signup", { links });
+}
+
+module.exports = { getHomepage, getSignupForm };

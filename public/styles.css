@@ -16,3 +16,15 @@ nav ul {
 .nav-link:visited {
   color: rgb(97, 150, 19);
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  gap: 5px;
+}
+
+input[type="submit"] {
+  width: min-content;
+}

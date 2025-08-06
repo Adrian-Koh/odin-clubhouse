@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <%- include('navBar', links); %>
+    <h1>Sign Up</h1>
+    <form action="/signup" method="POST">
+      <label for="username"
+        >Username:
+        <input type="text" name="username" />
+      </label>
+      <label for="firstname"
+        >First name:
+        <input type="text" name="firstname" />
+      </label>
+      <label for="lastname"
+        >Last name:
+        <input type="text" name="lastname" />
+      </label>
+      <label for="password"
+        >Password:
+        <input type="password" name="password" />
+      </label>
+      <label for="confirm-password"
+        >Confirm password:
+        <input type="password" name="confirm-password" />
+      </label>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
