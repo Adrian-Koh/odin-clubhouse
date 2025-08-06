@@ -24,9 +24,16 @@ async function insertMessage(message) {
   );
 }
 
-async function getUser(username) {
+async function getUserByUsername(username) {
   const { rows } = await pool.query(`SELECT * FROM users WHERE username=$1`, [
     username,
+  ]);
+  return rows[0];
+}
+
+async function getUserByID(userid) {
+  const { rows } = await pool.query(`SELECT * FROM users WHERE userid=$1`, [
+    userid,
   ]);
   return rows[0];
 }
@@ -39,4 +46,10 @@ async function getUserMessages(userid) {
   return rows;
 }
 
-module.exports = { insertUser, insertMessage, getUser, getUserMessages };
+module.exports = {
+  insertUser,
+  insertMessage,
+  getUserByUsername,
+  getUserByID,
+  getUserMessages,
+};
