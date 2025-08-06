@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>New message</title>
+  </head>
+  <body>
+    <%- include('navBar', links); %>
+    <h1>Create a new message</h1>
+    <form action="/new-message" method="POST">
+      <label for="message"
+        >Message:
+        <textarea name="message" cols="75" rows="20"></textarea>
+      </label>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

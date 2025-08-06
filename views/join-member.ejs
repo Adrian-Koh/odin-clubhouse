@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Join the Excommunicado</title>
+  </head>
+  <body>
+    <%- include('navBar', links); %>
+    <h1>Join the Excommunicado!</h1>
+    <p>Enter the secret password and you shall enter.</p>
+    <form action="/join-member" method="POST">
+      <label for="secret-password"
+        >Secret password:
+        <input type="password" name="secret-password" />
+      </label>
+      <label for="isAdmin"
+        >Is Admin
+        <input type="checkbox" />
+      </label>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

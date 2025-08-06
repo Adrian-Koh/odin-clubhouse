@@ -4,8 +4,8 @@ const indexController = require("../controllers/indexController");
 
 indexRouter.get("/", indexController.getHomepage);
 indexRouter.get("/signup", indexController.getSignupForm);
-indexRouter.get("/login", (req, res) => res.send("log in form"));
-indexRouter.get("/join-member", (req, res) => res.send("join member form"));
-indexRouter.get("/new-message", (req, res) => res.send("new message form"));
+indexRouter.get("/login", indexController.getLoginForm);
+indexRouter.get("/join-member", indexController.getJoinMemberForm);
+indexRouter.get("/new-message", indexController.getNewMessageForm);
 
 module.exports = indexRouter;

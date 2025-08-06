@@ -17,4 +17,22 @@ function getSignupForm(req, res) {
   res.render("signup", { links });
 }
 
-module.exports = { getHomepage, getSignupForm };
+function getLoginForm(req, res) {
+  res.render("login", { links });
+}
+
+function getJoinMemberForm(req, res) {
+  res.render("join-member", { links });
+}
+
+function getNewMessageForm(req, res) {
+  res.render("new-message", { links });
+}
+
+module.exports = {
+  getHomepage,
+  getSignupForm,
+  getLoginForm,
+  getJoinMemberForm,
+  getNewMessageForm,
+};
