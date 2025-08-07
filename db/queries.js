@@ -3,7 +3,7 @@ const pool = require("./pool");
 async function insertUser(user) {
   await pool.query(
     `INSERT INTO users 
-    (firstname, lastname, username, passwordHash, membership) 
+    (firstname, lastname, username, passwordhash, membership) 
     VALUES 
     ($1, $2, $3, $4, $5)`,
     [
@@ -29,6 +29,8 @@ async function getUserByUsername(username) {
   const { rows } = await pool.query(`SELECT * FROM users WHERE username=$1`, [
     username,
   ]);
+  console.log(rows);
+
   return rows[0];
 }
 

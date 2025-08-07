@@ -1,3 +1,4 @@
+const passport = require("passport");
 const db = require("../db/queries");
 const { createPasswordHash } = require("../lib/passwordUtils");
 
@@ -43,6 +44,13 @@ function getLoginForm(req, res) {
   res.render("login", { links });
 }
 
+function postLogin(req, res) {
+  passport.authenticate("local", {
+    failureRedirect: "/signup",
+    successRedirect: "/",
+  });
+}
+
 function getJoinMemberForm(req, res) {
   res.render("join-member", { links });
 }
@@ -56,6 +64,7 @@ module.exports = {
   getSignupForm,
   postSignUp,
   getLoginForm,
+  postLogin,
   getJoinMemberForm,
   getNewMessageForm,
 };

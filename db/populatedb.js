@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
   firstname VARCHAR (255),
   lastname VARCHAR (255),
   username VARCHAR (255),
-  passwordHash VARCHAR (255),
+  passwordhash VARCHAR (255),
   membership VARCHAR (255)
 );
 
