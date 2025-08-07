@@ -14,13 +14,13 @@
         <h1>Join the Excommunicado!</h1>
         <p>Enter the secret password and you shall enter.</p>
         <form action="/join-member" method="POST">
-          <label for="secret-password"
+          <label for="secretPassword"
             >Secret password:
-            <input type="password" name="secret-password" />
+            <input type="password" name="secretPassword" />
           </label>
           <label for="isAdmin"
             >Is Admin
-            <input type="checkbox" />
+            <input type="checkbox" name="isAdmin" />
           </label>
           <input type="submit" />
         </form>

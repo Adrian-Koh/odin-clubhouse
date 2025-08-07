@@ -41,6 +41,13 @@ async function getUserByID(userid) {
   return rows[0];
 }
 
+async function updateUserMembership(userid, membership) {
+  await pool.query("UPDATE users SET membership=$1 WHERE userid=$2", [
+    membership,
+    userid,
+  ]);
+}
+
 async function getUserMessages(userid) {
   const { rows } = await pool.query(
     `SELECT * FROM messages WHERE messages.userid=$1`,
@@ -54,5 +61,6 @@ module.exports = {
   insertMessage,
   getUserByUsername,
   getUserByID,
+  updateUserMembership,
   getUserMessages,
 };

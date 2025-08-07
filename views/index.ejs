@@ -13,7 +13,8 @@
         <%- include('title'); %> <% if (locals.user && locals.messages) { %>
         <h1>Excommunicado messages:</h1>
         <ul>
-          <% for (const message of messages) { %> <% if (isMember) { %>
+          <% for (const message of messages) { %> <% if (user.membership ===
+          'member' || user.membership === 'admin') { %>
           <li><%= `${message.user} says: ${message.text}` %></li>
           <% } else { %>
           <li><%= message.text %></li>

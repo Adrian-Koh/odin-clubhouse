@@ -1,6 +1,9 @@
 const passport = require("passport");
 const db = require("../db/queries");
-const { createPasswordHash } = require("../lib/passwordUtils");
+const {
+  createPasswordHash,
+  verifyClubhousePassword,
+} = require("../lib/passwordUtils");
 
 const links = [];
 links.push({ href: "/", title: "Home" });
@@ -18,7 +21,6 @@ function getHomepage(req, res) {
   res.render("index", {
     links,
     messages: dummyMessages,
-    isMember: false,
     user: req.user,
   });
 }
@@ -54,6 +56,22 @@ function getJoinMemberForm(req, res) {
   res.render("join-member", { links });
 }
 
+async function postJoinMember(req, res) {
+  const { secretPassword, isAdmin } = req.body;
+
+  if (!verifyClubhousePassword(secretPassword)) {
+    throw new Error(
+      "Wrong secret password entered, you are rejected from the ex-communicado."
+    );
+  }
+
+  const membership = isAdmin ? "admin" : "member";
+
+  await db.updateUserMembership(req.user.userid, membership);
+
+  res.redirect("/");
+}
+
 function getNewMessageForm(req, res) {
   res.render("new-message", { links });
 }
@@ -77,6 +95,7 @@ module.exports = {
   postSignUp,
   getLoginForm,
   getJoinMemberForm,
+  postJoinMember,
   getNewMessageForm,
   logOut,
   getFailureRedirect,

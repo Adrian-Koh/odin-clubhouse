@@ -20,6 +20,11 @@ indexRouter.get(
   isAuthenticated,
   indexController.getJoinMemberForm
 );
+indexRouter.post(
+  "/join-member",
+  isAuthenticated,
+  indexController.postJoinMember
+);
 indexRouter.get(
   "/new-message",
   isAuthenticated,

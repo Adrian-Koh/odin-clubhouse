@@ -9,7 +9,6 @@ const verifyCallback = (username, password, done) => {
       if (!user) {
         return done(null, false);
       }
-      console.log("in verify: " + user.username);
 
       validPassword(password, user.passwordhash).then((isValid) => {
         if (isValid) {
