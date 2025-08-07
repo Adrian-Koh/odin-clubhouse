@@ -4,12 +4,13 @@ const {
   createPasswordHash,
   verifyClubhousePassword,
 } = require("../lib/passwordUtils");
-const { links, dummyMessages } = require("../lib/navLinks");
+const { links } = require("../lib/navLinks");
 
-function getHomepage(req, res) {
+async function getHomepage(req, res) {
+  const messages = await db.getAllMessages();
   res.render("index", {
     links,
-    messages: dummyMessages,
+    messages,
     user: req.user,
   });
 }

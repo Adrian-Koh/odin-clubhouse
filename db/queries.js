@@ -48,6 +48,13 @@ async function updateUserMembership(userid, membership) {
   ]);
 }
 
+async function getAllMessages() {
+  const { rows } = await pool.query(
+    "SELECT * FROM messages LEFT JOIN users ON messages.userid = users.userid"
+  );
+  return rows;
+}
+
 async function getUserMessages(userid) {
   const { rows } = await pool.query(
     `SELECT * FROM messages WHERE messages.userid=$1`,
@@ -56,11 +63,27 @@ async function getUserMessages(userid) {
   return rows;
 }
 
+async function insertMessage(message, userid) {
+  await pool.query(
+    "INSERT INTO messages (added, text, userid) VALUES (CURRENT_TIMESTAMP, $1, $2)",
+    [message, userid]
+  );
+}
+
+async function deleteMessage(messageid) {
+  await pool.query("DELETE FROM messages WHERE messages.messageid=$1", [
+    messageid,
+  ]);
+}
+
 module.exports = {
   insertUser,
   insertMessage,
   getUserByUsername,
   getUserByID,
   updateUserMembership,
+  getAllMessages,
   getUserMessages,
+  insertMessage,
+  deleteMessage,
 };

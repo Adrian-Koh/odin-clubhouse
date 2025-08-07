@@ -16,8 +16,8 @@
           <% for (const message of messages) { %> <% if (user.membership ===
           'member' || user.membership === 'admin') { %>
           <li class="message">
-            <%= `${message.user} says: ${message.text}` %> <%
-            if(user.membership==='admin'){%>
+            <%= `${message.firstname} ${message.lastname} says: ${message.text}`
+            %> <% if (user.membership === 'admin') { %>
             <a
               href="/message/delete/<%= message.messageid %>"
               class="deleteMessage"
