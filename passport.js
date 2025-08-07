@@ -11,12 +11,13 @@ const verifyCallback = (username, password, done) => {
       }
       console.log("in verify: " + user.username);
 
-      const isValid = validPassword(password, user.passwordhash);
-      if (isValid) {
-        return done(null, user);
-      } else {
-        return done(null, false);
-      }
+      validPassword(password, user.passwordhash).then((isValid) => {
+        if (isValid) {
+          return done(null, user);
+        } else {
+          return done(null, false);
+        }
+      });
     })
     .catch((err) => {
       done(err);

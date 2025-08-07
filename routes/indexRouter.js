@@ -16,5 +16,6 @@ indexRouter.post(
 );
 indexRouter.get("/join-member", indexController.getJoinMemberForm);
 indexRouter.get("/new-message", indexController.getNewMessageForm);
+indexRouter.get("/logout", indexController.logOut);
 
 module.exports = indexRouter;
