@@ -13,12 +13,12 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO users (firstname, lastname, username, passwordHash, membership)
 VALUES 
-('John', 'Smith', 'johnsmith123', '12345', 'member');
+('John', 'Smith', 'johnsmith123', '12345', 'regular');
 
 CREATE TABLE IF NOT EXISTS messages (
   messageid INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   added TIMESTAMP,
-  text VARCHAR (500),
+  text TEXT,
   userid INTEGER,
   FOREIGN KEY (userid) REFERENCES users(userid)
 );

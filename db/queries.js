@@ -2,9 +2,10 @@ const pool = require("./pool");
 
 async function insertUser(user) {
   await pool.query(
-    `INSERT INTO users (firstname, lastname, username, passwordHash, membership)
-        VALUES
-        ($1, $2, $3, $4, $5)`,
+    `INSERT INTO users 
+    (firstname, lastname, username, passwordHash, membership) 
+    VALUES 
+    ($1, $2, $3, $4, $5)`,
     [
       user.firstname,
       user.lastname,

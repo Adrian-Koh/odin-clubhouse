@@ -1,3 +1,6 @@
+const db = require("../db/queries");
+const { createPasswordHash } = require("../lib/passwordUtils");
+
 const links = [];
 links.push({ href: "/", title: "Home" });
 links.push({ href: "/signup", title: "Sign Up" });
@@ -17,6 +20,25 @@ function getSignupForm(req, res) {
   res.render("signup", { links });
 }
 
+async function postSignUp(req, res) {
+  const { firstname, lastname, username, password, confirmPassword } = req.body;
+
+  if (password !== confirmPassword) throw new Error("Passwords do not match!");
+
+  const passwordHash = await createPasswordHash(password);
+  const user = {
+    firstname,
+    lastname,
+    username,
+    passwordHash,
+    membership: "regular",
+  };
+
+  await db.insertUser(user);
+
+  res.redirect("/login");
+}
+
 function getLoginForm(req, res) {
   res.render("login", { links });
 }
@@ -32,6 +54,7 @@ function getNewMessageForm(req, res) {
 module.exports = {
   getHomepage,
   getSignupForm,
+  postSignUp,
   getLoginForm,
   getJoinMemberForm,
   getNewMessageForm,
