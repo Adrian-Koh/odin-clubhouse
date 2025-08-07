@@ -7,15 +7,20 @@
     <title>Excommunicado club</title>
   </head>
   <body>
-    <%- include('navBar', links); %> <% if (locals.messages) { %>
-    <h1>Excommunicado messages:</h1>
-    <ul>
-      <% for (const message of messages) { %> <% if (isMember) { %>
-      <li><%= `${message.user} says: ${message.text}` %></li>
-      <% } else { %>
-      <li><%= message.text %></li>
-      <% } %> <% } %>
-    </ul>
-    <% } %>
+    <%- include('navBar', links); %>
+    <div class="content-container">
+      <div class="content">
+        <%- include('title'); %> <% if (locals.messages) { %>
+        <h1>Excommunicado messages:</h1>
+        <ul>
+          <% for (const message of messages) { %> <% if (isMember) { %>
+          <li><%= `${message.user} says: ${message.text}` %></li>
+          <% } else { %>
+          <li><%= message.text %></li>
+          <% } %> <% } %>
+        </ul>
+        <% } %>
+      </div>
+    </div>
   </body>
 </html>

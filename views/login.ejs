@@ -8,17 +8,22 @@
   </head>
   <body>
     <%- include('navBar', links); %>
-    <h1>Log In</h1>
-    <form action="/login" method="POST">
-      <label for="username"
-        >Username:
-        <input type="text" name="username" />
-      </label>
-      <label for="password"
-        >Password:
-        <input type="password" name="password" />
-      </label>
-      <input type="submit" />
-    </form>
+    <div class="content-container">
+      <div class="content">
+        <%- include('title'); %>
+        <h1>Log In</h1>
+        <form action="/login" method="POST">
+          <label for="username"
+            >Username:
+            <input type="text" name="username" />
+          </label>
+          <label for="password"
+            >Password:
+            <input type="password" name="password" />
+          </label>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

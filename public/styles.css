@@ -27,3 +27,21 @@ form {
 input[type="submit"] {
   width: min-content;
 }
+
+.content-container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 500px;
+}
+
+.title {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  border: solid 3px goldenrod;
+  color: goldenrod;
+  border-radius: 5px;
+  padding: 10px;
+}

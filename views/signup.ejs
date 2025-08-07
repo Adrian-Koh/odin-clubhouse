@@ -8,29 +8,34 @@
   </head>
   <body>
     <%- include('navBar', links); %>
-    <h1>Sign Up</h1>
-    <form action="/signup" method="POST">
-      <label for="username"
-        >Username:
-        <input type="text" name="username" />
-      </label>
-      <label for="firstname"
-        >First name:
-        <input type="text" name="firstname" />
-      </label>
-      <label for="lastname"
-        >Last name:
-        <input type="text" name="lastname" />
-      </label>
-      <label for="password"
-        >Password:
-        <input type="password" name="password" />
-      </label>
-      <label for="confirm-password"
-        >Confirm password:
-        <input type="password" name="confirm-password" />
-      </label>
-      <input type="submit" />
-    </form>
+    <div class="content-container">
+      <div class="content">
+        <%- include('title'); %>
+        <h1>Sign Up</h1>
+        <form action="/signup" method="POST">
+          <label for="username"
+            >Username:
+            <input type="text" name="username" />
+          </label>
+          <label for="firstname"
+            >First name:
+            <input type="text" name="firstname" />
+          </label>
+          <label for="lastname"
+            >Last name:
+            <input type="text" name="lastname" />
+          </label>
+          <label for="password"
+            >Password:
+            <input type="password" name="password" />
+          </label>
+          <label for="confirm-password"
+            >Confirm password:
+            <input type="password" name="confirm-password" />
+          </label>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>
