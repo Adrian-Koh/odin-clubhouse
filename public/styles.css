@@ -45,3 +45,26 @@ input[type="submit"] {
   border-radius: 5px;
   padding: 10px;
 }
+
+.deleteMessage {
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px black;
+  text-decoration: none;
+  color: rgb(173, 130, 12);
+  margin-left: auto;
+}
+
+.message {
+  margin-bottom: 15px;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  display: flex;
+}
+
+.messageList {
+  list-style-type: none;
+  padding: 0;
+}

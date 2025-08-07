@@ -12,10 +12,19 @@
       <div class="content">
         <%- include('title'); %> <% if (locals.user && locals.messages) { %>
         <h1>Excommunicado messages:</h1>
-        <ul>
+        <ul class="messageList">
           <% for (const message of messages) { %> <% if (user.membership ===
           'member' || user.membership === 'admin') { %>
-          <li><%= `${message.user} says: ${message.text}` %></li>
+          <li class="message">
+            <%= `${message.user} says: ${message.text}` %> <%
+            if(user.membership==='admin'){%>
+            <a
+              href="/message/delete/<%= message.messageid %>"
+              class="deleteMessage"
+              >Delete</a
+            >
+            <%} %>
+          </li>
           <% } else { %>
           <li><%= message.text %></li>
           <% } %> <% } %>
