@@ -1,3 +1,4 @@
+require("dotenv").config();
 const path = require("node:path");
 const express = require("express");
 const pg = require("pg");
@@ -6,7 +7,6 @@ const pgSession = require("connect-pg-simple")(expressSession);
 const indexRouter = require("./routes/indexRouter");
 const passport = require("passport");
 
-require("dotenv").config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
