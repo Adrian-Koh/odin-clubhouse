@@ -10,7 +10,7 @@
     <%- include('navBar', links); %>
     <div class="content-container">
       <div class="content">
-        <%- include('title'); %> <% if (locals.messages) { %>
+        <%- include('title'); %> <% if (locals.user && locals.messages) { %>
         <h1>Excommunicado messages:</h1>
         <ul>
           <% for (const message of messages) { %> <% if (isMember) { %>

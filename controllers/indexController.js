@@ -15,7 +15,12 @@ dummyMessages.push({ user: "user1", text: "hello" });
 dummyMessages.push({ user: "user2", text: "sup" });
 
 function getHomepage(req, res) {
-  res.render("index", { links, messages: dummyMessages, isMember: false });
+  res.render("index", {
+    links,
+    messages: dummyMessages,
+    isMember: false,
+    user: req.user,
+  });
 }
 
 function getSignupForm(req, res) {
