@@ -62,6 +62,10 @@ function logOut(req, res, next) {
   });
 }
 
+function getFailureRedirect(req, res) {
+  res.render("failure-redirect", { links });
+}
+
 module.exports = {
   getHomepage,
   getSignupForm,
@@ -70,4 +74,5 @@ module.exports = {
   getJoinMemberForm,
   getNewMessageForm,
   logOut,
+  getFailureRedirect,
 };

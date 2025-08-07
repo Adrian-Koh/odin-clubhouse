@@ -10,12 +10,13 @@ indexRouter.get("/login", indexController.getLoginForm);
 indexRouter.post(
   "/login",
   passport.authenticate("local", {
-    failureRedirect: "/signup", // TODO: failure page
+    failureRedirect: "/failure-redirect", // TODO: failure page
     successRedirect: "/",
   })
 );
 indexRouter.get("/join-member", indexController.getJoinMemberForm);
 indexRouter.get("/new-message", indexController.getNewMessageForm);
 indexRouter.get("/logout", indexController.logOut);
+indexRouter.get("/failure-redirect", indexController.getFailureRedirect);
 
 module.exports = indexRouter;
