@@ -25,11 +25,6 @@ indexRouter.post(
   isAuthenticated,
   indexController.postJoinMember
 );
-indexRouter.get(
-  "/new-message",
-  isAuthenticated,
-  indexController.getNewMessageForm
-);
 indexRouter.get("/logout", indexController.logOut);
 indexRouter.get("/failure-redirect", indexController.getFailureRedirect);
 

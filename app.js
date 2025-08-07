@@ -5,6 +5,7 @@ const pg = require("pg");
 const expressSession = require("express-session");
 const pgSession = require("connect-pg-simple")(expressSession);
 const indexRouter = require("./routes/indexRouter");
+const messageRouter = require("./routes/messageRouter");
 const passport = require("passport");
 
 const app = express();
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/", indexRouter);
+app.use("/message", messageRouter);
 
 // catch all errors
 app.use((err, req, res, next) => {
