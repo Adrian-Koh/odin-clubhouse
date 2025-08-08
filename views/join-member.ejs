@@ -10,7 +10,7 @@
     <%- include('navBar', links); %>
     <div class="content-container">
       <div class="content">
-        <%- include('title'); %>
+        <%- include('title'); %><%- include('form-errors', locals.errors); %>
         <h1 class="content-title">Join the Excommunicado!</h1>
         <p class="description">
           Enter the secret password and you shall enter.

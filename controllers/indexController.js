@@ -65,9 +65,16 @@ async function postJoinMember(req, res) {
   const { secretPassword, isAdmin } = req.body;
 
   if (!verifyClubhousePassword(secretPassword)) {
-    throw new Error(
-      "Wrong secret password entered, you are rejected from the ex-communicado."
-    );
+    const errors = [
+      {
+        msg: "Wrong secret password entered, you are rejected from the Excommunicado.",
+      },
+    ];
+    getLinks(req, res, () => {});
+    return res.status(400).render("join-member", {
+      links: req.links,
+      errors,
+    });
   }
 
   const membership = isAdmin ? "admin" : "member";
