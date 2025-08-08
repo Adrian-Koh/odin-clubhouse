@@ -3,6 +3,7 @@ const messageRouter = Router();
 const messageController = require("../controllers/messageController");
 const { isAuthenticated, isAdmin } = require("../lib/authMiddleware");
 const { getLinks } = require("../lib/navLinks");
+const { validateMessage } = require("../lib/formValidator");
 
 messageRouter.get(
   "/new",
@@ -10,7 +11,12 @@ messageRouter.get(
   getLinks,
   messageController.getNewMessageForm
 );
-messageRouter.post("/new", isAuthenticated, messageController.postNewMessage);
+messageRouter.post(
+  "/new",
+  isAuthenticated,
+  validateMessage,
+  messageController.postNewMessage
+);
 messageRouter.get(
   "/delete/:messageid",
   isAdmin,
