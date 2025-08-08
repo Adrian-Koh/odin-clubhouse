@@ -13,10 +13,8 @@
         <%- include('title'); %>
         <h1>Create a new message</h1>
         <form action="/message/new" method="POST">
-          <label for="message"
-            >Message:
-            <textarea name="message" cols="60" rows="15"></textarea>
-          </label>
+          <label for="message">Message: </label
+          ><textarea name="message" cols="60" rows="15" id="message"></textarea>
           <input type="submit" />
         </form>
       </div>

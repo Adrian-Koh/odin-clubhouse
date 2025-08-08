@@ -1,4 +1,3 @@
-const passport = require("passport");
 const db = require("../db/queries");
 const {
   createPasswordHash,
