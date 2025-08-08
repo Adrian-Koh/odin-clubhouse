@@ -7,9 +7,16 @@ const { links } = require("../lib/navLinks");
 
 async function getHomepage(req, res) {
   const messages = await db.getAllMessages();
+  const messagesWithTimes = messages.map((message) => {
+    const datetime = `${new Date(
+      message.added
+    ).toLocaleDateString()} ${new Date(message.added).toLocaleTimeString()}`;
+    return { ...message, datetime };
+  });
+
   res.render("index", {
     links,
-    messages,
+    messages: messagesWithTimes,
     user: req.user,
   });
 }

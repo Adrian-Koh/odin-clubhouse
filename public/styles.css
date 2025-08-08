@@ -83,7 +83,10 @@ input[type="submit"] {
   border-radius: 5px;
   color: white;
   background-color: purple;
-  margin-left: 10px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  height: min-content;
+  width: min-content;
 }
 
 .message {
@@ -91,8 +94,16 @@ input[type="submit"] {
   border-radius: 5px;
   padding: 10px;
   width: calc(100% - 20px);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: max-content min-content;
+}
+
+.msg-time {
+  grid-row: 1 / 2;
+}
+
+.msg-text {
+  grid-row: 2 / 3;
 }
 
 .messageList {

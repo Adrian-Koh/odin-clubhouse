@@ -16,8 +16,12 @@
           <% for (const message of messages) { %> <% if (user.membership ===
           'member' || user.membership === 'admin') { %>
           <li class="message">
-            <%= `${message.firstname} ${message.lastname} says: ${message.text}`
-            %> <% if (user.membership === 'admin') { %>
+            <p class="msg-time"><%= `[${message.datetime}]` %></p>
+            <p class="msg-text">
+              <%= `${message.firstname} ${message.lastname} says:
+              ${message.text}` %> <% if (user.membership === 'admin') { %>
+            </p>
+
             <a
               href="/message/delete/<%= message.messageid %>"
               class="deleteMessage"
@@ -26,7 +30,7 @@
             <%} %>
           </li>
           <% } else { %>
-          <li><%= message.text %></li>
+          <li class="message"><%= message.text %></li>
           <% } %> <% } %>
         </ul>
         <% } %>
