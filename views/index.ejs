@@ -11,7 +11,7 @@
     <div class="content-container">
       <div class="content">
         <%- include('title'); %> <% if (locals.user && locals.messages) { %>
-        <h1>Excommunicado messages:</h1>
+        <h1 class="content-title">Excommunicado messages:</h1>
         <ul class="messageList">
           <% for (const message of messages) { %> <% if (user.membership ===
           'member' || user.membership === 'admin') { %>
@@ -33,4 +33,5 @@
       </div>
     </div>
   </body>
+  <%- include('footer'); %>
 </html>

@@ -11,7 +11,7 @@
     <div class="content-container">
       <div class="content">
         <%- include('title'); %>
-        <h1>Log In</h1>
+        <h1 class="content-title">Log In</h1>
         <form action="/login" method="POST">
           <label for="username">Username: </label
           ><input type="text" name="username" id="username" />
@@ -22,4 +22,5 @@
       </div>
     </div>
   </body>
+  <%- include('footer'); %>
 </html>

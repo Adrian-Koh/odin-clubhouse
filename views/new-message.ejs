@@ -11,7 +11,7 @@
     <div class="content-container">
       <div class="content">
         <%- include('title'); %>
-        <h1>Create a new message</h1>
+        <h1 class="content-title">Create a new message</h1>
         <form action="/message/new" method="POST">
           <label for="message">Message: </label
           ><textarea name="message" cols="60" rows="15" id="message"></textarea>
@@ -20,4 +20,5 @@
       </div>
     </div>
   </body>
+  <%- include('footer'); %>
 </html>

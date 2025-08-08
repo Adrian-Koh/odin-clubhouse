@@ -1,3 +1,13 @@
+:root {
+  --half-transparent: rgba(255, 255, 255, 0.6);
+}
+
+html {
+  background: url("./city-night.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 nav ul {
   list-style-type: none;
   display: flex;
@@ -5,16 +15,20 @@ nav ul {
 }
 
 .nav-link {
-  text-decoration: none;
   font-size: 1.5rem;
-  border: solid 2px rgb(97, 150, 19);
+  border: solid 2px rgb(207, 27, 117);
+  background-color: var(--half-transparent);
   border-radius: 5px;
   padding: 5px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .nav-link,
 .nav-link:visited {
-  color: rgb(97, 150, 19);
+  color: rgb(207, 27, 117);
 }
 
 form {
@@ -45,8 +59,9 @@ input[type="submit"] {
 .title {
   font-family: "Courier New", Courier, monospace;
   text-align: center;
-  border: solid 3px goldenrod;
-  color: goldenrod;
+  border: solid 3px rgb(128, 16, 128);
+  color: rgb(128, 16, 128);
+  background-color: var(--half-transparent);
   border-radius: 5px;
   padding: 10px;
 }
@@ -54,19 +69,19 @@ input[type="submit"] {
 .deleteMessage {
   padding: 5px;
   border-radius: 5px;
-  border: solid 1px black;
-  text-decoration: none;
-  color: rgb(173, 130, 12);
-  margin-left: auto;
+  color: white;
+  background-color: purple;
+  margin-left: 10px;
 }
 
 .message {
   margin-bottom: 15px;
-  border: solid 1px black;
   border-radius: 5px;
   padding: 10px;
   width: calc(100% - 20px);
   display: flex;
+  justify-content: space-between;
+  background-color: var(--half-transparent);
 }
 
 .messageList {
@@ -93,4 +108,25 @@ input[type="password"] {
 
 label {
   justify-self: flex-end;
+}
+
+.content-title {
+  background-color: var(--half-transparent);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+footer {
+  width: max-content;
+  margin-left: auto;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: pink;
+}
+
+footer a {
+  color: rgb(255, 117, 213);
 }
