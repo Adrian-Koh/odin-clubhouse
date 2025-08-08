@@ -14,15 +14,20 @@
         <h1 class="content-title">Sign Up</h1>
         <form action="/signup" method="POST">
           <label for="username">Username: </label
-          ><input type="text" name="username" id="username" />
+          ><input type="text" name="username" id="username" required />
           <label for="firstname">First name: </label
-          ><input type="text" name="firstname" id="firstname" />
+          ><input type="text" name="firstname" id="firstname" required />
           <label for="lastname">Last name: </label
-          ><input type="text" name="lastname" id="lastname" />
+          ><input type="text" name="lastname" id="lastname" required />
           <label for="password">Password: </label
-          ><input type="password" name="password" id="password" />
+          ><input type="password" name="password" id="password" required />
           <label for="confirmPassword">Confirm password: </label
-          ><input type="password" name="confirmPassword" id="confirmPassword" />
+          ><input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            required
+          />
           <input type="submit" />
         </form>
       </div>

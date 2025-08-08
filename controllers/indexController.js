@@ -4,13 +4,14 @@ const {
   verifyClubhousePassword,
 } = require("../lib/passwordUtils");
 const { links } = require("../lib/navLinks");
+const { validationResult } = require("express-validator");
 
 async function getHomepage(req, res) {
   const messages = await db.getAllMessages();
   const messagesWithTimes = messages.map((message) => {
     const datetime = `${new Date(
       message.added
-    ).toLocaleDateString()} ${new Date(message.added).toLocaleTimeString()}`;
+    ).toLocaleDateString()}, ${new Date(message.added).toLocaleTimeString()}`;
     return { ...message, datetime };
   });
 
@@ -26,9 +27,12 @@ function getSignupForm(req, res) {
 }
 
 async function postSignUp(req, res) {
-  const { firstname, lastname, username, password, confirmPassword } = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).send(errors); // todo: error page
+  }
 
-  if (password !== confirmPassword) throw new Error("Passwords do not match!");
+  const { firstname, lastname, username, password, confirmPassword } = req.body;
 
   const passwordHash = await createPasswordHash(password);
   const user = {

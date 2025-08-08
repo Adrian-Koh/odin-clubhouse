@@ -16,10 +16,12 @@
           <% for (const message of messages) { %> <% if (user.membership ===
           'member' || user.membership === 'admin') { %>
           <li class="message">
-            <p class="msg-time"><%= `[${message.datetime}]` %></p>
+            <p class="msg-user">
+              <%= `${message.firstname} ${message.lastname}`%>
+            </p>
+            <p class="msg-time"><%= message.datetime %></p>
             <p class="msg-text">
-              <%= `${message.firstname} ${message.lastname} says:
-              ${message.text}` %> <% if (user.membership === 'admin') { %>
+              <%= message.text %> <% if (user.membership === 'admin') { %>
             </p>
 
             <a

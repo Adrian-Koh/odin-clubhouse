@@ -3,10 +3,11 @@ const indexRouter = Router();
 const indexController = require("../controllers/indexController");
 const passport = require("passport");
 const { isAuthenticated } = require("../lib/authMiddleware");
+const { validateUser } = require("../lib/formValidator");
 
 indexRouter.get("/", indexController.getHomepage);
 indexRouter.get("/signup", indexController.getSignupForm);
-indexRouter.post("/signup", indexController.postSignUp);
+indexRouter.post("/signup", validateUser, indexController.postSignUp);
 indexRouter.get("/login", indexController.getLoginForm);
 indexRouter.post(
   "/login",

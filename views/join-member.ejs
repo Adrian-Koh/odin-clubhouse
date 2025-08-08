@@ -17,7 +17,12 @@
         </p>
         <form action="/join-member" method="POST">
           <label for="secretPassword">Secret password: </label
-          ><input type="password" name="secretPassword" id="secretPassword" />
+          ><input
+            type="password"
+            name="secretPassword"
+            id="secretPassword"
+            required
+          />
           <label for="isAdmin">Is Admin: </label
           ><input type="checkbox" name="isAdmin" id="isAdmin" />
           <input type="submit" />
