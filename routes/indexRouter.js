@@ -7,9 +7,9 @@ const { validateSignup } = require("../lib/formValidator");
 const { getLinks } = require("../lib/navLinks");
 
 indexRouter.get("/", getLinks, indexController.getHomepage);
-indexRouter.get("/signup", indexController.getSignupForm);
+indexRouter.get("/signup", getLinks, indexController.getSignupForm);
 indexRouter.post("/signup", validateSignup, indexController.postSignUp);
-indexRouter.get("/login", indexController.getLoginForm);
+indexRouter.get("/login", getLinks, indexController.getLoginForm);
 indexRouter.post(
   "/login",
   passport.authenticate("local", {
@@ -20,6 +20,7 @@ indexRouter.post(
 indexRouter.get(
   "/join-member",
   isAuthenticated,
+  getLinks,
   indexController.getJoinMemberForm
 );
 indexRouter.post(

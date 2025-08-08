@@ -32,7 +32,9 @@
             <%} %>
           </li>
           <% } else { %>
-          <li class="message"><%= message.text %></li>
+          <li class="message">
+            <p class="msg-text-non-member"><%= message.text %></p>
+          </li>
           <% } %> <% } %>
         </ul>
         <% } %>
