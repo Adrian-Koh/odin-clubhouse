@@ -199,3 +199,14 @@ footer a {
   background-color: rgba(11, 106, 134, 0.8);
   color: white;
 }
+
+.form-errors {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.errors-list {
+  color: var(--input-text-color);
+  padding: 0;
+}

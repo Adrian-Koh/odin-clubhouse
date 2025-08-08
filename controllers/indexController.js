@@ -1,4 +1,5 @@
 const db = require("../db/queries");
+const { getLinks } = require("../lib/navLinks");
 const {
   createPasswordHash,
   verifyClubhousePassword,
@@ -27,8 +28,13 @@ function getSignupForm(req, res) {
 
 async function postSignUp(req, res) {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
-    return res.status(400).send(errors); // todo: error page
+    getLinks(req, res, () => {});
+    return res.status(400).render("signup", {
+      links: req.links,
+      errors: errors.array(),
+    });
   }
 
   const { firstname, lastname, username, password, confirmPassword } = req.body;
