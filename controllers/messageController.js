@@ -1,9 +1,8 @@
 const passport = require("passport");
 const db = require("../db/queries");
-const { links } = require("../lib/navLinks");
 
 function getNewMessageForm(req, res) {
-  res.render("new-message", { links });
+  res.render("new-message", { links: req.links });
 }
 
 async function postNewMessage(req, res) {

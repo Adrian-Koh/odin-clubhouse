@@ -3,7 +3,6 @@ const {
   createPasswordHash,
   verifyClubhousePassword,
 } = require("../lib/passwordUtils");
-const { links } = require("../lib/navLinks");
 const { validationResult } = require("express-validator");
 
 async function getHomepage(req, res) {
@@ -16,14 +15,14 @@ async function getHomepage(req, res) {
   });
 
   res.render("index", {
-    links,
+    links: req.links,
     messages: messagesWithTimes,
     user: req.user,
   });
 }
 
 function getSignupForm(req, res) {
-  res.render("signup", { links });
+  res.render("signup", { links: req.links });
 }
 
 async function postSignUp(req, res) {
@@ -49,11 +48,11 @@ async function postSignUp(req, res) {
 }
 
 function getLoginForm(req, res) {
-  res.render("login", { links });
+  res.render("login", { links: req.links });
 }
 
 function getJoinMemberForm(req, res) {
-  res.render("join-member", { links });
+  res.render("join-member", { links: req.links });
 }
 
 async function postJoinMember(req, res) {
@@ -82,7 +81,7 @@ function logOut(req, res, next) {
 }
 
 function getFailureRedirect(req, res) {
-  res.render("failure-redirect", { links });
+  res.render("failure-redirect", { links: req.links });
 }
 
 module.exports = {
