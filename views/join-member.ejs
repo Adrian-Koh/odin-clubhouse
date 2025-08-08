@@ -12,7 +12,9 @@
       <div class="content">
         <%- include('title'); %>
         <h1 class="content-title">Join the Excommunicado!</h1>
-        <p>Enter the secret password and you shall enter.</p>
+        <p class="description">
+          Enter the secret password and you shall enter.
+        </p>
         <form action="/join-member" method="POST">
           <label for="secretPassword">Secret password: </label
           ><input type="password" name="secretPassword" id="secretPassword" />
